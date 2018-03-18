@@ -1,0 +1,13 @@
+version: '2'
+services:
+  proxy:
+    restart: 'always'
+    build:
+      context: .
+    volumes:
+      - ./keys:/key
+    env_file: .env
+    environment:
+      LOCAL_PORT: 1080
+    ports:
+      - 127.0.0.1:1080:1080
