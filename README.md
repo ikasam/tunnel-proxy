@@ -19,4 +19,4 @@
 
 # 4. Browser setting
 
-(WIP)
+![proxy.pac setting](https://raw.githubusercontent.com/ikasam/tunnel-proxy/images/chrome-setting.PNG)
