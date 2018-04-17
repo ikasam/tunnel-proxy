@@ -12,11 +12,24 @@
     STEP_SERVER=stepserver.example.com
     STEP_SERVER_USER=root
     INPUT_KEY_FILENAME=id_rsa
+    LOCAL_PORT=1080
 
 # 3. Start container
 
     $ docker-compose up -d
 
-# 4. Browser setting
+# 4. Edit proxy.pac
+
+    $ vim proxy.pac
+
+    function FindProxyForURL(url, host) {
+      if (shExpMatch(host, "example.com")) {
+        return "SOCKS5 localhost:1080; DIRECT";
+      } else {
+        return "DIRECT";
+      }
+    }
+
+# 5. Browser setting
 
 ![proxy.pac setting](https://raw.githubusercontent.com/ikasam/tunnel-proxy/images/chrome-setting.PNG)
